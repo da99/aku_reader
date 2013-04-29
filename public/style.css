@@ -1,6 +1,6 @@
 
 body {
-  font-style: "sans-serif";
+  font-family: sans-serif;
   background: #E8E8E8;
   padding: 0;
   margin: 0;
@@ -26,14 +26,24 @@ div.item {
   overflow: auto;
 }
 
+/* ========================================== */
+
+#feeds div.item {
+  overflow: hidden;
+  max-height: 18px;
+}
 
 /* ========================================== */
+
+#content div.item {
+  padding: 8px 3px ;
+}
 
 #content div.item:hover {
   background: #F9F9F9;
 }
 
-#content div.item div.date {
+#content div.item a.date {
   float: right;
   font-family: monospace;
   font-size: 70%;
@@ -42,6 +52,7 @@ div.item {
 
 #content div.item div.content {
   display: none;
+  padding: 4px;
 }
 
 #content div.selected div.content {

@@ -1,7 +1,7 @@
 
 var feed_data = null;
 
-fermata.json('/read-url').post({url: "http://www.holoscience.com/wp/feed/"}, function (err, data) {
+fermata.json('/read-url').post({url: "http://www.lewrockwell.com/lewrockwell-show/feed/"}, function (err, data) {
   if (err) throw err;
 
   if (data.data) {
@@ -20,11 +20,14 @@ function show_content(e) {
 }
 
 function new_post(item) {
-  var post = $('<div class="item"><a class="title"></a><div class="date"></div><div class="content"></div></div>');
-  post.find('a').attr('href', item.link);
-  post.find('a').text(item.title);
-  post.find('a').on('click', show_content);
-  post.find('div.date').text(item.pubdate);
+  var post = $('<div class="item"><a class="title"></a><a class="date"></a><div class="content"></div></div>');
+  post.find('a.title').attr('href', item.link);
+  post.find('a.title').text(item.title);
+  post.find('a.title').on('click', show_content);
+
+  post.find('a.date').attr('href', item.link);
+  post.find('a.date').text(item.pubdate);
+
   post.find('div.content').html(item.description);
   return post;
 }
