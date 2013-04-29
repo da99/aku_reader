@@ -1,7 +1,6 @@
 
 body {
   font-style: "sans-serif";
-  font-size: 80%;
   background: #E8E8E8;
   padding: 0;
   margin: 0;
@@ -24,4 +23,27 @@ div.item {
   margin: 1px;
   padding: 3px;
   border-radius: 3px;
+  overflow: auto;
+}
+
+
+/* ========================================== */
+
+#content div.item:hover {
+  background: #F9F9F9;
+}
+
+#content div.item div.date {
+  float: right;
+  font-family: monospace;
+  font-size: 70%;
+  font-weight: bold;
+}
+
+#content div.item div.content {
+  display: none;
+}
+
+#content div.selected div.content {
+  display: block;
 }
