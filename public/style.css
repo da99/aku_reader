@@ -1,0 +1,27 @@
+
+body {
+  font-style: "sans-serif";
+  font-size: 80%;
+  background: #E8E8E8;
+  padding: 0;
+  margin: 0;
+}
+
+#feeds {
+  float: left;
+  width: 20%;
+}
+  #feeds div.item {
+    background: #fff;
+  }
+
+#content {
+  float: left;
+  width: 79%;
+}
+
+div.item {
+  margin: 1px;
+  padding: 3px;
+  border-radius: 3px;
+}

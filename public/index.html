@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reader</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+
+    <div id="feeds"></div>
+    <div id="content"></div>
+
+    <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script src="/fermata.js"></script>
+    <script src="/reader.js"></script>
+<script>
+
+fermata.json('/read-url').post({url: "http://www.holoscience.com/wp/feed/"}, function (err, data) {
+  if (err) throw err;
+
+  if (data.data) {
+    show((data.data));
+  }
+});
+
+
+function new_feed(title, link) {
+  var e = $('<div class="item"><div class="title"><a href=""></a></div></div>');
+  $(e.find('a')).attr('href', link);
+  $(e.find('a')).text(title);
+  e.attr('id', link.replace(/[^a-z0-9\_]/g, '_'));
+  e.on('click', function (e) {
+    show_posts($(this).parents('div.item'));
+    return false;
+  });
+  return e;
+};
+
+var feeds = {};
+var show = function (xml) {
+  var e = new_feed(xml.title, xml.link);
+  feeds[e.attr('id')] = e.items;
+  $( "#feeds" ).append( e  );
+  $( "#content" ).append( '' + xml.items.length );
+};
+
+</script>
+    <!-- ...................... -->
+    <!-- ...................... -->
+
+  </body>
+</html>
